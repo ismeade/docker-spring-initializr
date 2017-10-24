@@ -6,11 +6,11 @@ RUN apk add --no-cache git && \
     git clone https://github.com/spring-io/initializr.git && \
     cd /initializr && \
     ./mvnw clean install && \
-	cd /initializr/initializr-service && \
-	mvn clean install && \
-	mv /initializr/initializr-service/target/initializr-service.jar /initializr-service.jar && \
-	cd / && \
-	rm -rf /initializr && \
+    cd /initializr/initializr-service && \
+    mvn clean install && \
+    mv /initializr/initializr-service/target/initializr-service.jar /initializr-service.jar && \
+    cd / && \
+    rm -rf /initializr && \
     apk del git
 
 EXPOSE 8080
