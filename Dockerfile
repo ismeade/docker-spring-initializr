@@ -4,9 +4,15 @@ MAINTAINER ismeade <ismeade99@sina.com>
 
 RUN apk add --no-cache git && \
     git clone https://github.com/spring-io/initializr.git && \
-    cd initializr && \
+    cd /initializr && \
     ./mvnw clean install && \
-    cd initializr-service && \
-    ../mvnw spring-boot:run
+	cd /initializr/initializr-service && \
+	mvn clean install && \
+	mv /initializr/initializr-service/target/initializr-service.jar /initializr-service.jar && \
+	cd / && \
+	rm -rf /initializr && \
+    apk del git
 
 EXPOSE 8080
+
+CMD ["java", "-jar", "/initializr-service.jar"]
