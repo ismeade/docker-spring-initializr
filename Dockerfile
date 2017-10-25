@@ -7,7 +7,7 @@ RUN apk add --no-cache git && \
     cd /initializr && \
     ./mvnw clean install && \
     cd /initializr/initializr-service && \
-    mvn clean install && \
+    ./mvnw clean install && \
     mv /initializr/initializr-service/target/initializr-service.jar /initializr-service.jar && \
     cd / && \
     rm -rf /initializr && \
