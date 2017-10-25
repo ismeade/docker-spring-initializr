@@ -10,7 +10,8 @@ RUN apk add --no-cache git && \
     ../mvnw clean install && \
     mv /initializr/initializr-service/target/initializr-service.jar /initializr-service.jar && \
     cd / && \
-    rm -rf /initializr && \
+    rm -rf /initializr \
+           /root/.m2/ && \
     apk del git
 
 EXPOSE 8080
